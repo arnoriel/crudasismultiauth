@@ -9,6 +9,7 @@
                 <div class="card-body">
                     <form action="{{route('siswa.update',$siswa->id)}}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label for="">Masukan Nama Siswa</label>
                             <input type="text" name="nama" value="{{$siswa->nama}}" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Siswa">
