@@ -1,9 +1,10 @@
 <?php
   
 use Illuminate\Support\Facades\Route;
-  
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiswaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,3 +63,9 @@ Route::get('/siswaw', function () {
     return view('siswaw.index');
 });
 Route::get('/siswaw', [App\Http\Controllers\SiswaController::class,'siswaWalkel']);
+
+Route::get('/cetak',[SiswaController::class,'cetak']) -> name('siswap.cetak');
+
+Route::get('/search', [SiswaController::class, 'cari'])->name('siswa.cari');
+Route::get('/searchw', [SiswaController::class, 'cariw'])->name('siswaw.cari');
+Route::get('/searchs', [SiswaController::class, 'caris'])->name('siswas.cari');

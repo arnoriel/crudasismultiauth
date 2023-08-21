@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class SiswaController extends Controller
 {
@@ -68,7 +69,13 @@ class SiswaController extends Controller
     {
         //
     }
+    public function cetak()
+    {
+        $siswa = Siswa::all();
 
+        $pdf = PDF::loadView('siswap.cetak', ['siswa' => $siswa]);
+        return $pdf->download('cetaklaporansiswa.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -109,5 +116,38 @@ class SiswaController extends Controller
         $siswa = siswa::findOrFail($id);
         $siswa->delete();
         return redirect()->route('siswa.index');
+    }
+
+    public function cari(Request $request)
+    {
+        $keyword = $request->input('cari');
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $siswa = Siswa::where('nama', 'like', "%" . $keyword . "%")->paginate(10);
+
+        // mengirim data pegawai ke view index
+        return view('siswa.index', compact('siswa'));
+    }
+
+    public function cariw(Request $request)
+    {
+        $keyword = $request->input('cari');
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $siswa = Siswa::where('nama', 'like', "%" . $keyword . "%")->paginate(10);
+
+        // mengirim data pegawai ke view index
+        return view('siswaw.index', compact('siswa'));
+    }
+
+    public function caris(Request $request)
+    {
+        $keyword = $request->input('cari');
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $siswa = Siswa::where('nama', 'like', "%" . $keyword . "%")->paginate(10);
+
+        // mengirim data pegawai ke view index
+        return view('siswas.index', compact('siswa'));
     }
 }
