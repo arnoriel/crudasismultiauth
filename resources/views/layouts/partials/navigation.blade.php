@@ -10,7 +10,10 @@
             <a class="nav-link active" aria-current="page" href="/admin/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/siswa">Siswa</a>
+            <a class="nav-link" href="/siswa">Data Siswa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/guru">Data Guru</a>
           </li>
         </ul>
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

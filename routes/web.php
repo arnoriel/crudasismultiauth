@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiswaController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\GuruController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +50,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 Route::get('/siswa', function () {
     return view('siswa.index');
 });
+Route::get('/guru', function () {
+    return view('guru.index');
+});
 Route::resource('/siswa', SiswaController::class);
-  
+Route::resource('/guru', GuruController::class);  
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
@@ -69,3 +74,4 @@ Route::get('/cetak',[SiswaController::class,'cetak']) -> name('siswap.cetak');
 Route::get('/search', [SiswaController::class, 'cari'])->name('siswa.cari');
 Route::get('/searchw', [SiswaController::class, 'cariw'])->name('siswaw.cari');
 Route::get('/searchs', [SiswaController::class, 'caris'])->name('siswas.cari');
+Route::get('/search', [GuruController::class, 'cari'])->name('guru.cari');

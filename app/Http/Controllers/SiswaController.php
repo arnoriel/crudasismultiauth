@@ -122,10 +122,8 @@ class SiswaController extends Controller
     {
         $keyword = $request->input('cari');
 
-        // mengambil data dari table pegawai sesuai pencarian data
         $siswa = Siswa::where('nama', 'like', "%" . $keyword . "%")->paginate(10);
-
-        // mengirim data pegawai ke view index
+        
         return view('siswa.index', compact('siswa'));
     }
 
