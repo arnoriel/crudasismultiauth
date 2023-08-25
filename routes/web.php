@@ -74,4 +74,4 @@ Route::get('/cetak',[SiswaController::class,'cetak']) -> name('siswap.cetak');
 Route::get('/search', [SiswaController::class, 'cari'])->name('siswa.cari');
 Route::get('/searchw', [SiswaController::class, 'cariw'])->name('siswaw.cari');
 Route::get('/searchs', [SiswaController::class, 'caris'])->name('siswas.cari');
-Route::get('/search', [GuruController::class, 'cari'])->name('guru.cari');
+Route::get('/searchg', [GuruController::class, 'cari'])->name('guru.cari');
