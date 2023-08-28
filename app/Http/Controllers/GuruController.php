@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use Alert;
 
 class GuruController extends Controller
 {
@@ -46,6 +47,7 @@ class GuruController extends Controller
         $guru->alamat = $request->alamat;
         
         $guru->save();
+        Alert::success('Berhasil menambahkan Guru', 'Guru masuk di Database');
         return redirect()->route('guru.index');
     }
 
@@ -89,6 +91,7 @@ class GuruController extends Controller
         $guru->alamat = $request->alamat;
 
         $guru->save();
+        Alert::success('Berhasil edit Guru', 'Guru di Update di Database');
         return redirect()->route('guru.index');
     }
 
@@ -99,6 +102,7 @@ class GuruController extends Controller
     {
         $guru=Guru::findOrFail($id);
         $guru->delete();
+        Alert::warning('Guru telah di hapus', 'Guru telah di Drop dari Database');
         return redirect()->route('guru.index');
     }
 

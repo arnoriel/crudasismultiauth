@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+Use Alert;
 
 class SiswaController extends Controller
 {
@@ -59,6 +60,7 @@ class SiswaController extends Controller
         $siswa->alamat = $request->alamat;
         
         $siswa->save();
+        Alert::success('Berhasil Menambahkan Siswa', 'Siswa Masuk ke Database');
         return redirect()->route('siswa.index');
     }
 
@@ -105,6 +107,7 @@ class SiswaController extends Controller
         $siswa->jurusan = $request->jurusan;
         $siswa->alamat = $request->alamat;
         $siswa->save();
+        Alert::info('Berhasil Mengedit Siswa', 'Siswa di Update di Database');
         return redirect()->route('siswa.index');
     }
 
@@ -115,6 +118,7 @@ class SiswaController extends Controller
     {
         $siswa = siswa::findOrFail($id);
         $siswa->delete();
+        Alert::warning('Siswa telah di Hapus', 'Siswa telah di Drop dari Database');
         return redirect()->route('siswa.index');
     }
 
