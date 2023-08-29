@@ -5,7 +5,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="card">
-                <div class="card-header">Data Siswa</div>
+                <div class="card-header bg-primary text-white">Tambah Data Siswa</div>
                 <div class="card-body">
                     <form action="{{route('siswa.store')}}" method="post">
                         @csrf
@@ -53,8 +53,8 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <button type="reset" class="btn btn-outline-warning">Reset</button>
-                            <button type="submit" class="btn btn-outline-primary">Simpan</button>
+                            <button type="reset" class="btn btn-warning text-white">Reset</button>
+                            <button type="submit" class="btn btn-primary text-white">Simpan</button>
                         </div>
                     </form>
                 </div>

@@ -4,25 +4,31 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-15">
-            <h2>Halo Walkel!</h2>
+            <div class="card bg-success text-white" style="opacity: 50%;">
+                <div class="card-body">
+                    <h5>Halo Wali Kelas !</h5>
+                </div>
+            </div>
             <br>
             <div class="card">
-                <div class="card-header bg-primary text-white">{{ __('Dashboard') }}</div>
+                <div class="card-header bg-primary text-white">
+                   <h5>Dashboard</h5>
+                </div>
+                <div class="card-header">
+                 Total Data Siswa: {{ DB::table('siswas')->count() }}
+                </div>
                 <div style="width: 800px;margin: 0px auto;">
                     <canvas id="myChart"></canvas>
                 </div>
-             
-               
                 <div class="card-body">
-                   
-                </div>
                 @php
-              use App\Models\Siswa;
-              use App\Models\Guru;
+                use App\Models\Siswa;
+                use App\Models\Guru;
 
                 $jumlah_laki = Siswa::where('jk', 'perempuan') ->count();
                 $jumlah_perempuan= Siswa::where('jk', 'Laki-laki')->count();
                 @endphp
+                </div>
             </div>
         </div>
     </div>
@@ -60,22 +66,12 @@
 	});
 </script>
 <br>
-<div class="col-md-10 offset-md-1">
+<div class="col-md-8 offset-md-2">
     <div class="container text-center">
         <div class="row">
           <div class="col">
-            <div class="card bg-primary text-white" style="width: 18rem;">
-                <div class="card-header">
-                    Total Data Siswa
-                </div>
-                <div class="card-body">
-                    {{ DB::table('siswas')->count(); }}
-                </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card bg-primary text-white" style="width: 18rem;">
-                <div class="card-header">
+            <div class="card" style="width: 25rem;">
+                <div class="card-header bg-primary text-white">
                     Total Data Guru
                 </div>
                 <div class="card-body">
@@ -84,8 +80,8 @@
             </div>
           </div>
           <div class="col">
-            <div class="card bg-primary text-white" style="width: 18rem;">
-                <div class="card-header">
+            <div class="card" style="width: 25rem;">
+                <div class="card-header bg-primary text-white">
                     Total Data Kelas
                 </div>
                 <div class="card-body">
@@ -95,5 +91,11 @@
           </div>
         </div>
       </div>
+</div>
+<br>
+<div class="card bg-danger text-white" style="margin: 10px;">
+    <div class="card-body">
+        Note: Biasakan LOG OUT setelah menggunakan aplikasi !
+    </div>
 </div>
 @endsection
