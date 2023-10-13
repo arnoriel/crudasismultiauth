@@ -14,6 +14,8 @@
     @include('layouts.partials.navigation')
     <div class="container">
         <br>
+        <br>
+        <br>
         @include('sweetalert::alert')
         <main class="py-4">
             @yield('content')
